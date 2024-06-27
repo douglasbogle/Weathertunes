@@ -21,5 +21,3 @@ def get_spotify_api_key():
 
     auth_response_data = auth_response.json()
     return auth_response_data["access_token"]
-
-    
