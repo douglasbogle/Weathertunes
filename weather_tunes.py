@@ -70,8 +70,8 @@ def gpt_query_words():
 
     # Specify the model to use and the messages to send
     completion = client.chat.completions.create(
-        model ="gpt-3.5-turbo",
-        messages = [
+        model="gpt-3.5-turbo",
+        messages=[
             {"role": "system", "content": "You are a muiscal genius that generates a list of 5 words or short phrases to use in the Spotify API search function based on the given activity and weather."},
             {"role": "user", "content": f"The weather is {weather_stats[0]} degrees and {weather_stats[1]} and the activity is {activity}"}
         ]
