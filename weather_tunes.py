@@ -71,20 +71,20 @@ def gpt_query_words():
     # Specify the model to use and the messages to send
     completion = client.chat.completions.create(
         model ="gpt-3.5-turbo",
-        messages =
+        messages = /
         [
             {"role": "system", "content": "You are a muiscal genius that generates a list of 5 words or short phrases to use in the Spotify API search function based on the given activity and weather."},
             {"role": "user", "content": f"The weather is {weather_stats[0]} degrees and {weather_stats[1]} and the activity is {activity}"}
         ]
     )
-    return(completion.choices[0].message.content)
+    return (completion.choices[0].message.content)
 
 
 # function to get a list of songs from a specific genre
 def get_songs_from_genre():
     while True:
         show_genres = show_genre_list()
-        if show_genres == True:
+        if show_genres:
             print(list_of_genres())
         genre_table = (input("So what genre are you feeling? "))
         if genre_table in genres:
