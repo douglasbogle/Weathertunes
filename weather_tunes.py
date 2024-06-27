@@ -11,6 +11,7 @@ load_dotenv()
 WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 GPT_API_KEY = os.getenv('GPT_API_KEY')
 
+
 # function to welcome the user
 def welcome_user():
     print("Welcome to WeatherTunes! 🌤️  🎶")
