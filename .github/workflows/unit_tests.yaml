@@ -16,10 +16,11 @@ jobs:
         run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy python-dotenv openai
 
       - name: Let GitHub access keys
-        run: echo "WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }}" >> $GITHUB_ENV
-        run: echo "GPT_API_KEY=${{ secrets.GPT_API_KEY }}" >> $GITHUB_ENV
-        run: echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> $GITHUB_ENV
-        run: echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> $GITHUB_ENV
-
+        run: |
+          echo "WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }}" >> $GITHUB_ENV
+          echo "GPT_API_KEY=${{ secrets.GPT_API_KEY }}" >> $GITHUB_ENV
+          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> $GITHUB_ENV
+          
       - name: Test with unittest
         run: python3 -m unittest unit_tests.py
