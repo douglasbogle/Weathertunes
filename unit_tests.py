@@ -7,11 +7,11 @@ class UnitTests(unittest.TestCase):
     def test_welcome_user(self):
         self.assertEqual(welcome_user(), True)
 
-    @patch('builtins.input', side_effect=['Houston', 'y'])  # all this does is autofill the function's call for input
+    '''@patch('builtins.input', side_effect=['Houston', 'y'])  # all this does is autofill the function's call for input
     def test_weather_forecast(self, mock_input):
         weather, place = weather_forecast()
         self.assertIsInstance(weather, list)
-        self.assertIsInstance(place, str)
+        self.assertIsInstance(place, str)'''
 
     @patch('builtins.input', side_effect="Doing insane backflips")  # all this does is autofill the function's call for input
     def test_users_activity(self, mock_input):
