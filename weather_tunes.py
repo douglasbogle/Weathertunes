@@ -70,7 +70,7 @@ def gpt_query_words():
 
     # Specify the model to use and the messages to send
     completion = client.chat.completions.create(
-        model = "gpt-3.5-turbo",
+        model ="gpt-3.5-turbo",
         messages =
         [
             {"role": "system", "content": "You are a muiscal genius that generates a list of 5 words or short phrases to use in the Spotify API search function based on the given activity and weather."},
@@ -114,7 +114,7 @@ def list_of_genres():
 
 
 # function to give the user the songs and send closing messages
-def final_response(activity, city, weather_stats, songs):       
+def final_response(activity, city, weather_stats, songs):
     while True:
         more_info = input("Would you like to see the basic info or extended info for each song? Type 'b' for basic and 'e' for extended: ")
         if more_info == 'b':
@@ -152,7 +152,7 @@ def final_response(activity, city, weather_stats, songs):
 if __name__ == "__main__":
     welcome_user()
     weather_stats, city = weather_forecast()
-    if(isinstance(weather_stats, list)):
+    if (isinstance(weather_stats, list)):
         activity = users_activity()
         query_words = gpt_query_words()
         print("Ok, let me cook for a little bit.\n")
