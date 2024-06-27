@@ -1,12 +1,15 @@
 from api_key import *
 from genre_database import *
 import openai
+from dotenv import load_dotenv
 from openai import OpenAI
 import os
-import pprint
 import requests
 from spotify_genres import genres
 
+load_dotenv()
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
+GPT_API_KEY = os.getenv('GPT_API_KEY')
 
 # function to welcome the user
 def welcome_user():
@@ -21,7 +24,7 @@ def weather_forecast():
     correct_city = False
     while not correct_city:
         city = input("Enter your city: ")
-        WEATHER_API_KEY = get_weather_api_key()
+        # WEATHER_API_KEY = get_weather_api_key()
         url = f'http://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={city}'
         response = requests.get(url)
 
@@ -61,7 +64,7 @@ def users_activity():
 
 # function to get query words from chat GPT's API
 def gpt_query_words():
-    GPT_API_KEY = get_gpt_api_key()
+    # GPT_API_KEY = get_gpt_api_key()
 
     # create an OpenAPI client using the key from our environment variable
     client = OpenAI(

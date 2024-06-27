@@ -1,14 +1,14 @@
 import requests
+import os
+from dotenv import load_dotenv
 
-def get_weather_api_key():
-    return 'c152661085b946e0ab8184515242406'
-
-def get_gpt_api_key():
-    return 'sk-proj-qTd5Ntrt7pEdCb6PWXUST3BlbkFJLqPt1czpnI7l5VU3jpV1'
+load_dotenv()
+SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
+SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
 
 def get_spotify_api_key():
-    CLIENT_ID = "3774bb536c9e42ed86976e60befb4d28"
-    CLIENT_SECRET = "71a181b61bf84bef800b300d32d852ba"
+    CLIENT_ID = SPOTIFY_CLIENT_ID
+    CLIENT_SECRET = SPOTIFY_CLIENT_SECRET
 
     AUTH_URL = "https://accounts.spotify.com/api/token"
 
