@@ -23,14 +23,13 @@ Before you begin, ensure you have the following installed:
 
 #### Setting Up The Repository:
     **Set up environment variables**
-        * Obtain an API key from the Google Developer website for the YouTube Data API.
-        * Set the API_KEY variable in your code with this obtained key.
+        * Obtain API keys and set them up as environment variables!
+        * Just run the program!
 
 ### How To Run The Code
 1. **Run the script**
-    * ```python
-      python3 weather_tunes.py
-      ```
+    * run python3 weather_tunes.py
+      
 2. **Follow the prompts**
     * Enter a location when asked
       * Type y(yes) or n(no) if you see the correct city
