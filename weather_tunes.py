@@ -37,7 +37,7 @@ def weather_forecast():
             city_from_response = json_response['location']['name']
             region_from_response = json_response['location']['region']
             print(f"Is {city_from_response} in {region_from_response} your desired location?")
-            
+   
             while True:
                 proper_location = input("Type 'y' if it is correct and 'n' to input a new location: ").strip().lower()
                 if proper_location == 'y':
@@ -69,7 +69,6 @@ def users_activity():
             print("Character limit exceeded. Please enter the activity again with a shorter description")
 
 
-
 def gpt_query_words():
     """
     Function to get query words from OpenAI's GPT-3.5 API based on weather and activity.
@@ -99,9 +98,9 @@ def get_songs_from_genre():
         show_genres = show_genre_list()
         if show_genres:
             print(list_of_genres())
-            
+
         genre_table = (input("So what genre are you feeling? "))
-        
+
         if genre_table in genres:
             formatted_genre = (genre_table.lower()).replace("-", "")
             with engine.connect() as connection:
@@ -147,26 +146,26 @@ def final_response(activity, city, weather_stats, songs):
             print(f"\nI hope you enjoy {activity} in {city} 😁")
             print(f"It will be around {weather_stats[0]} degrees and {weather_stats[1]}.")
             print("Here are some tunes to groove to:")
-            
+
             for i in range(len(songs)):
                 print(f"{i+1}. {songs[i][1]} by {songs[i][2]} from {songs[i][3]}. 🎶")
                 print(f"Song Link: {songs[i][4]}\n")
             break
-            
+
         else:
             print("Invalid Entry: enter 'b' or 'e'")
 
     while True:
         see_another_genre = input("Would you like to see similar songs from another genre? Type 'y' for yes or 'n' for no: ")
-        
+
         if see_another_genre == 'y':
             songs = get_songs_from_genre()
             final_response(activity, city, weather_stats, songs)
-            
+
         elif see_another_genre == 'n':
             print("Awesome, enjoy your day with some great music! 🌟")
             exit()
-            
+    
         else:
             print("Invalid Entry: enter 'y' or 'n'")
     return True
@@ -175,14 +174,14 @@ def final_response(activity, city, weather_stats, songs):
 if __name__ == "__main__":
     welcome_user()
     weather_stats, city = weather_forecast()
-    
+
     if (isinstance(weather_stats, list)):
         activity = users_activity()
         query_words = gpt_query_words()
-        
+
         print("Ok, let me cook for a little bit.\n")
         create_db(query_words)
         print("Ok great! I thought of some songs for many genres, let's narrow it down for you.")
-        
+
         songs = get_songs_from_genre()
         final_response(activity, city, weather_stats, songs)
