@@ -37,7 +37,7 @@ def weather_forecast():
             city_from_response = json_response['location']['name']
             region_from_response = json_response['location']['region']
             print(f"Is {city_from_response} in {region_from_response} your desired location?")
-   
+
             while True:
                 proper_location = input("Type 'y' if it is correct and 'n' to input a new location: ").strip().lower()
                 if proper_location == 'y':
@@ -141,7 +141,7 @@ def final_response(activity, city, weather_stats, songs):
             for i in range(len(songs)):
                 print(f"{i+1}. {songs[i][1]} by {songs[i][2]}. 🎶")
             break
-            
+  
         elif more_info == 'e':
             print(f"\nI hope you enjoy {activity} in {city} 😁")
             print(f"It will be around {weather_stats[0]} degrees and {weather_stats[1]}.")
@@ -165,7 +165,7 @@ def final_response(activity, city, weather_stats, songs):
         elif see_another_genre == 'n':
             print("Awesome, enjoy your day with some great music! 🌟")
             exit()
-    
+
         else:
             print("Invalid Entry: enter 'y' or 'n'")
     return True
