@@ -141,7 +141,7 @@ def final_response(activity, city, weather_stats, songs):
             for i in range(len(songs)):
                 print(f"{i+1}. {songs[i][1]} by {songs[i][2]}. 🎶")
             break
-  
+
         elif more_info == 'e':
             print(f"\nI hope you enjoy {activity} in {city} 😁")
             print(f"It will be around {weather_stats[0]} degrees and {weather_stats[1]}.")
